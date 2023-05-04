@@ -1,1 +1,16 @@
-# Three-Stage-adversarial-perturbation-Initiative-Defense-for-Face-Attribute-Editing
+# 面向人脸属性编辑的三阶段对抗扰动生成主动防御算法
+
+## 摘要
+针对现有两阶段训练人脸篡改主动防御框架迁移性和扰动鲁棒性不足的问题，本文通过优化两阶段训练架构及损失函数和引入一个辅助分类器，提出一种三阶段对抗扰动主动防御框架。本文首先修改两阶段训练架构中的代理目标模型并基于此设计了扰动生成器训练的属性编辑损失，以提升代理模型的重建性能和属性约束能力，从而减少主动防御对代理模型的过拟合；其次，引入辅助分类器训练阶段并基于此设计扰动生成器训练的辅助分类器损失，将原本的两阶段交替训练改为代理目标模型、辅助分类器和扰动生成器的三阶段交替训练，采用分类器对代理模型提取的编码后特征进行源属性分类，通过对抗攻击辅助分类器以促进对篡改模型的主动防御；最后，在扰动生成器训练中，引入攻击层促进对抗扰动对滤波和JPEG压缩的鲁棒性。实验结果验证，提出的框架在主动防御性能、扰动鲁棒性上均优于相关算法，能够较好的阻止人脸属性编辑行为。
+
+## 前提准备
+NVIDIA GPU+CUDA CuDNN (CPU mode may also work, but untested);
+安装 Torch1.8 and dependencies
+
+## 训练的部分细节
+数据集: CelebA;
+训练前修改相关路径;
+训练: 修改并执行 main.py;
+
+## 致谢
+本工作基于 AttGAN和Initiative Defense：https://github.com/elvisyjlin/AttGAN-PyTorch；https://github.com/shikiw/initiative-defense-for-deepfake.
